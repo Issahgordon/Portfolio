@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+{% load static %}
+	<html lang="en">
+	<head>
+		<title>Book Store</title>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta name="format-detection" content="telephone=no">
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+	    <meta name="author" content="">
+	    <meta name="keywords" content="">
+	    <meta name="description" content="">
+
+	    <link rel="stylesheet" type="text/css" href="{% get_static_prefix %}Home/css/normalize.css">
+	    <link rel="stylesheet" type="text/css" href="{% get_static_prefix %}Home/icomoon/icomoon.css">
+	    <link rel="stylesheet" type="text/css" href="{% get_static_prefix %}Home/css/vendor.css">
+	    <link rel="stylesheet" type="text/css" href="{% get_static_prefix %}Home/style.css">
+
+		<!-- script
+		================================================== -->
+		<script src="{% get_static_prefix %}Home/js/modernizr.js"></script>
+
+	</head>
+
+<body>
+
+	{% include 'header.html'%}
+
+<div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">			
+				<div class="colored">
+					<h1 class="page-title">Categories</h1>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div><!--site-banner-->
+
+<section class="padding-large">
+	<div class="container">
+		<div class="row">
+
+			<div class="products-grid grid">
+              {% for i in Categories %}
+			  	<figure class="product-style">
+					<img src="{% get_static_prefix %}Home/images/tab-item1.jpg" alt="Books" class="product-item">
+					<a href="{% url 'select_category' i.Name %}"><button type="button" class="add-to-cart" data-product-tile="add-to-cart">View Books</button></a>
+					<figcaption>
+						<h3>{{i.Name}}</h3>
+						
+						<div class="item-price">{{i.Books}} Books Here</div>
+					</figcaption>
+				</figure>
+
+			  	{% endfor %}
+
+	    	</div>
+
+		</div>
+	</div>
+</section>
+
+
+
+<div id="footer-bottom">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+
+				<div class="copyright">
+					<div class="row">
+
+						<div class="col-md-6">
+							<p>© 2023 All rights reserved. ClearText by <a href="https://github.com/Issahgordon/" target="_blank">Issahgordon</a></p>
+						</div>
+
+						<div class="col-md-6">
+							<div class="social-links align-right">
+								<ul>
+									<li>
+										<a href="#"><i class="icon icon-facebook"></i></a>
+									</li>
+									<li>
+										<a href="#"><i class="icon icon-twitter"></i></a>
+									</li>
+									<li>
+										<a href="#"><i class="icon icon-youtube-play"></i></a>
+									</li>
+									<li>
+										<a href="#"><i class="icon icon-behance-square"></i></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+				</div><!--grid-->
+
+			</div><!--footer-bottom-content-->
+		</div>
+	</div>
+</div>
+
+<script src="{% get_static_prefix %}Home/js/jquery-1.11.0.min.js"></script>
+<script src="{% get_static_prefix %}Home/js/plugins.js"></script>
+<script src="{% get_static_prefix %}Home/js/script.js"></script>
+
+</body>
+</html>	

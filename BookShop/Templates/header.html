@@ -1,0 +1,96 @@
+{% load static %}
+<div id="header-wrap">
+	
+	<div class="top-content">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="social-links">
+						<ul>
+							<li>
+								<a href="#"><i class="icon icon-facebook"></i></a>
+							</li>
+							<li>
+								<a href="#"><i class="icon icon-twitter"></i></a>
+							</li>
+							<li>
+								<a href="#"><i class="icon icon-youtube-play"></i></a>
+							</li>
+							<li>
+								<a href="#"><i class="icon icon-behance-square"></i></a>
+							</li>
+						</ul>
+					</div><!--social-links-->
+				</div>
+				<div class="col-md-6">
+					<div class="right-element">
+						{% if Data.id == "None"%}
+						<a href="{% url 'login' %}" class="user-account for-buy"><i class="icon icon-user" ></i><span>Login</span></a>
+						{% else %}
+						<a href="{% url 'logout' %}" class="user-account for-buy"><img style="width: 50px;height: 50px;border-radius: 100px" src="{% get_media_prefix %}Users/{{Data.id}}.jpg?{{Rand}}"><span>  Logout</span></a>
+
+						{% endif %}
+
+						<div class="action-menu">
+
+							<div class="search-bar">
+								<a href="#" class="search-button search-toggle" data-selector="#header-wrap">
+									<i class="icon icon-search"></i>
+								</a>
+								<form role="search" method="get" class="search-box">
+									<input class="search-field text search-input" placeholder="Search" type="search">
+								</form>
+							</div>
+						</div>
+
+					</div><!--top-right-->
+				</div>
+				
+			</div>
+		</div>
+	</div><!--top-content-->
+
+	<header id="header">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-md-2">
+					<div class="main-logo">
+						<a href="index.html"><img src="{% get_static_prefix %}Home/images/cleartext2.png" alt="logo"></a>
+					</div>
+
+				</div>
+
+				<div class="col-md-10">
+					
+					<nav id="navbar">
+						<div class="main-menu stellarnav">
+							<ul class="menu-list">
+								<li class="menu-item active"><a href="{% url 'home' %}" data-effect="Home">Home</a></li>
+								<li class="menu-item"><a href="{% url 'categories' %}" class="nav-link" data-effect="Articles">Cetegories</a></li>
+								<li class="menu-item"><a href="{% url 'trends'%}" class="nav-link" data-effect="Shop">Hot Trends</a></li>
+								<li class="menu-item"><a href="{% url 'about'%}" class="nav-link" data-effect="About">About</a></li>
+								
+								{% if Data.id == "None"%}
+
+						{% else %}
+						<li class="menu-item"><a href="{% url 'dashboard'%}" class="nav-link" data-effect="Contact">Dashboard</a></li>
+						{% endif %}
+							</ul>
+
+							<div class="hamburger">
+				                <span class="bar"></span>
+				                <span class="bar"></span>
+				                <span class="bar"></span>
+				            </div>
+
+						</div>
+					</nav>
+
+				</div>
+
+			</div>
+		</div>
+	</header>
+		
+</div>

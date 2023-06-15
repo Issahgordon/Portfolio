@@ -1,0 +1,1 @@
+This repository contains my portfolio project as a fullstack Software Engineer

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+{% load static %}
+	<html lang="en">
+	<head>
+		<title>Book Store</title>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta name="format-detection" content="telephone=no">
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+	    <meta name="author" content="">
+	    <meta name="keywords" content="">
+	    <meta name="description" content="">
+
+	    <link rel="stylesheet" type="text/css" href="{% get_static_prefix %}Home/css/normalize.css">
+	    <link rel="stylesheet" type="text/css" href="{% get_static_prefix %}Home/icomoon/icomoon.css">
+	    <link rel="stylesheet" type="text/css" href="{% get_static_prefix %}Home/css/vendor.css">
+	    <link rel="stylesheet" type="text/css" href="{% get_static_prefix %}Home/style.css">
+
+		<!-- script
+		================================================== -->
+		<script src="{% get_static_prefix %}Home/js/modernizr.js"></script>
+
+	</head>
+
+<body>
+
+
+	{% include 'header.html'%}
+
+<section id="billboard">
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+
+				<button class="prev slick-arrow">
+					<i class="icon icon-arrow-left"></i>
+				</button>
+
+				<div class="main-slider pattern-overlay">
+					<div class="slider-item">
+						<div class="banner-content">
+							<h2 class="banner-title">Life of the Wild</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu feugiat amet, libero ipsum enim pharetra hac. Urna commodo, lacus ut magna velit eleifend. Amet, quis urna, a eu.</p>
+							<div class="btn-wrap">
+								<a href="{% url 'categories' %}" class="btn btn-outline-accent btn-accent-arrow">Read More<i class="icon icon-ns-arrow-right"></i></a>
+							</div>
+						</div><!--banner-content--> 
+						<img src="{% get_static_prefix %}Home/images/main-banner1.jpg" alt="banner" class="banner-image">
+					</div><!--slider-item-->
+
+					<div class="slider-item">
+						<div class="banner-content">
+							<h2 class="banner-title">Birds gonna be Happy</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu feugiat amet, libero ipsum enim pharetra hac. Urna commodo, lacus ut magna velit eleifend. Amet, quis urna, a eu.</p>
+							<div class="btn-wrap">
+								<a href="{% url 'categories' %}" class="btn btn-outline-accent btn-accent-arrow">Read More<i class="icon icon-ns-arrow-right"></i></a>
+							</div>
+						</div><!--banner-content--> 
+						<img src="{% get_static_prefix %}Home/images/main-banner2.jpg" alt="banner" class="banner-image">
+					</div><!--slider-item-->
+
+				</div><!--slider-->
+					
+				<button class="next slick-arrow">
+					<i class="icon icon-arrow-right"></i>
+				</button>
+				
+			</div>
+		</div>
+	</div>
+	
+</section>
+
+<section id="client-holder" data-aos="fade-up">
+	<div class="container">
+		<div class="row">
+			<div class="inner-content">
+				<div class="logo-wrap">
+					<div class="grid">
+						<a href="#"><img src="{% get_static_prefix %}Home/images/client-image1.png" alt="client"></a>
+						<a href="#"><img src="{% get_static_prefix %}Home/images/client-image2.png" alt="client"></a>
+						<a href="#"><img src="{% get_static_prefix %}Home/images/client-image3.png" alt="client"></a>
+						<a href="#"><img src="{% get_static_prefix %}Home/images/client-image4.png" alt="client"></a>
+						<a href="#"><img src="{% get_static_prefix %}Home/images/client-image5.png" alt="client"></a>
+					</div>
+				</div><!--image-holder-->
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="featured-books">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+
+			<div class="section-header align-center">
+				<div class="title">
+					<span>Some quality items</span>
+				</div>
+				<h2 class="section-title">Featured Books</h2>
+			</div>
+
+			<div class="product-list" data-aos="fade-up">
+				<div class="row">
+                   {% for i in Books %}
+					<div class="col-md-3">
+						<figure class="product-style">
+							<img src="{% get_media_prefix %}Covers/{{i.id}}.jpg" style="height: 400px;width: 430px;" alt="Books" class="product-item">
+								<a href="{% url 'select_book' i.id %}"><button type="button"  class="add-to-cart" data-product-tile="add-to-cart">Get It</button></a>
+							<figcaption>
+								<h3>{{i.Name}}</h3>
+								<p>{{i.Category}}</p>
+								<div class="item-price">Rating : {{i.Rate}}%
+								</div>
+							</figcaption>
+						</figure>
+					</div>
+				
+					{% endfor %}
+
+			    </div><!--ft-books-slider-->				
+			</div><!--grid-->
+
+
+			</div><!--inner-content-->
+		</div>
+		
+		<div class="row">
+			<div class="col-md-12">
+
+				<div class="btn-wrap align-right">
+					<a href="{% url 'categories' %}" class="btn-accent-arrow">View all books <i class="icon icon-ns-arrow-right"></i></a>
+				</div>
+				
+			</div>		
+		</div>
+	</div>
+</section>
+
+
+
+<section id="quotation" class="align-center">
+	<div class="inner-content">
+		<h2 class="section-title divider">Quote of the day</h2>
+		<blockquote data-aos="fade-up">
+			<q>“The more that you read, the more things you will know. The more that you learn, the more places you’ll go.”</q>
+			<div class="author-name">Dr. Seuss</div>			
+		</blockquote>
+	</div>		
+</section>
+
+
+<div id="footer-bottom">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+
+				<div class="copyright">
+					<div class="row">
+
+						<div class="col-md-6">
+							<p>© 2023 All rights reserved. ClearText by <a href="https://github.com/Issahgordon/" target="_blank">Issahgordon</a></p>
+						</div>
+
+						<div class="col-md-6">
+							<div class="social-links align-right">
+								<ul>
+									<li>
+										<a href="#"><i class="icon icon-facebook"></i></a>
+									</li>
+									<li>
+										<a href="#"><i class="icon icon-twitter"></i></a>
+									</li>
+									<li>
+										<a href="#"><i class="icon icon-youtube-play"></i></a>
+									</li>
+									<li>
+										<a href="#"><i class="icon icon-behance-square"></i></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+				</div><!--grid-->
+
+			</div><!--footer-bottom-content-->
+		</div>
+	</div>
+</div>
+
+<script src="{% get_static_prefix %}Home/js/jquery-1.11.0.min.js"></script>
+<script src="{% get_static_prefix %}Home/js/plugins.js"></script>
+<script src="{% get_static_prefix %}Home/js/script.js"></script>
+
+</body>
+</html>	
